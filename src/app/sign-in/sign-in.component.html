@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div style="width: 30%;padding-top: 10%;padding-left: 35%;">
+<div class="divClass">
+    <form [formGroup]="signInForm" (ngSubmit)="login()">
+      <label for="fname">User Name</label>
+      <input type="text" id="fname" name="firstname" formControlName="userName" placeholder="User Name.." [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+      <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+        <div *ngIf="f.userName.errors.required" class="text-red">User Name is required</div>
+    </div>
+  
+      <label for="lname">Password</label>
+      <input type="password" id="lname" name="lastname" formControlName="password"  placeholder="Password.." [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required" class="text-red"> Password is required </div>
+    </div>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+  </div>

@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div style="width: 45%;padding-top: 4%;padding-left: 27%;">
+  <h1> ADD PRODUCT </h1>
+    <div class="divClass">
+      <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+        <label for="fname">SKU ID</label>
+        <input type="text" id="sku_id" name="sku_id" formControlName="sku_id" placeholder="SKU ID.." [ngClass]="{ 'is-invalid': submitted && f.sku_id.errors }">
+        <div *ngIf="submitted && f.sku_id.errors" class="invalid-feedback">
+          <div *ngIf="f.sku_id.errors.required" class="text-red">SKU ID is required</div>
+      </div>
+
+      <label for="lname">Batch No</label>
+      <input type="text" id="batch_no" name="batch_no" formControlName="batch_no"  placeholder="Batch No.." [ngClass]="{ 'is-invalid': submitted && f.batch_no.errors }">
+      <div *ngIf="submitted && f.batch_no.errors" class="invalid-feedback">
+        <div *ngIf="f.batch_no.errors.required" class="text-red">Brand is required </div>
+    </div>
+    
+        <label for="lname">Name</label>
+        <input type="text" id="name" name="name" formControlName="name"  placeholder="Name.." [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required" class="text-red"> Name is required </div>
+      </div>
+
+      <label for="lname">Product Image</label>
+        <input type="file" id="file" name="file" accept="image/*" formControlName="file"  placeholder="Product Image.." [ngClass]="{ 'is-invalid': submitted && f.file.errors }" (change)="onFileChnage($event.target.files[0])">
+        <div *ngIf="submitted && f.file.errors" class="invalid-feedback">
+          <div *ngIf="f.file.errors.required" class="text-red"> Product Image is required </div>
+      </div>
+
+      <label for="lname">Brand</label>
+        <input type="text" id="brand" name="brand" formControlName="brand"  placeholder="Brand.." [ngClass]="{ 'is-invalid': submitted && f.brand.errors }">
+        <div *ngIf="submitted && f.brand.errors" class="invalid-feedback">
+          <div *ngIf="f.brand.errors.required" class="text-red">Brand is required </div>
+      </div>
+
+      <label for="lname">Category</label>
+        <input type="text" id="category" name="category" formControlName="category"  placeholder="category.." [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+        <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+          <div *ngIf="f.category.errors.required" class="text-red">Category is required </div>
+      </div>
+
+      <label for="lname">MFG Date</label>
+      <input type="date" id="mfg_date" name="mfg_date" formControlName="mfg_date"  placeholder="MFG Date.." [ngClass]="{ 'is-invalid': submitted && f.mfg_date.errors }">
+      <div *ngIf="submitted && f.mfg_date.errors" class="invalid-feedback">
+        <div *ngIf="f.mfg_date.errors.required" class="text-red">MFG Date is required </div>
+    </div>
+
+    <label for="lname">EXP Date</label>
+      <input type="date" id="exp_date" name="exp_date" formControlName="exp_date"  placeholder="EXP Date.." [ngClass]="{ 'is-invalid': submitted && f.exp_date.errors }">
+      <div *ngIf="submitted && f.exp_date.errors" class="invalid-feedback">
+        <div *ngIf="f.exp_date.errors.required" class="text-red">EXP Date is required </div>
+    </div>
+        <input type="submit" value="Add Product">
+      </form>
+      </div>
+      </div>

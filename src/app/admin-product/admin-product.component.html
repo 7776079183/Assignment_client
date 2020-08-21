@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div style="padding-top: 5%;padding-left: 10%;">
+   
+    <h2>Admin Products  <span style="padding-left: 80%;"><button (click)="addProduct()"> ADD PRODUCT </button>  </span></h2>
+    <table>
+      <tr>
+        <th> SR_NO </th>
+        <th> SKU_ID </th>
+        <th> BATCH_NO</th>
+        <th> NAME</th>
+        <th> PICTURE</th>
+        <th> BRAND</th>
+        <th> CATEGORY</th>
+        <th> MFG_DATE</th>
+        <th> EXP_DATE</th>
+        <th> UPDATE </th>
+        <th> DELETE </th>
+      </tr>
+      <tr *ngFor="let product of products; let i = index" >
+        <td>{{ i+1 }}</td>
+        <td>{{ product?.sku_id }}</td>
+        <td>{{ product?.batch_no }}</td>
+        <td>{{ product?.name }}</td>
+        <td><img height="100" width="100" [src]= "product?.image" /></td>
+        <td>{{ product?.brand }}</td>
+        <td>{{ product?.category }}</td>
+        <td>{{ product?.mfg_date }}</td>
+        <td>{{ product?.exp_date }}</td>
+        <td style="cursor: pointer;"> <btton (click)="updateProduct(product._id)">UPDATE</btton> </td>
+        <td style="cursor: pointer;"> <btton  (click)="deleteProduct(product._id)">DELETE</btton>  </td>
+      </tr>
+    </table>
+    </div>
